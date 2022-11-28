@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                 checkout poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], gitTool: 'ubuntugit', userRemoteConfigs: [[url: 'https://github.com/djgit17/DockerMavenJava.git']]]
+                 checkout poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], gitTool: '/usr/bin/git', userRemoteConfigs: [[url: 'https://github.com/djgit17/DockerMavenJava.git']]]
 
                 // Run Maven on a Unix agent.
                 sh "mvn clean package"
